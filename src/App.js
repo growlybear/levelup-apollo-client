@@ -21,10 +21,13 @@ class App extends Component {
     return (
       <ApolloProvider client={client}>
         <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
-          </header>
+          <Link to="/">
+            <header className="App-header">
+              <img src={logo} className="App-logo" alt="logo" />
+              <h1 className="App-title">Welcome to React</h1>
+            </header>
+          </Link>
+
           <Switch>
             <Route path="/" component={Posts} exact />
             <Route path="/post/:id" component={Post} />
