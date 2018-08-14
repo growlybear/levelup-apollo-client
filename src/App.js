@@ -10,8 +10,8 @@ const client = new ApolloClient({
   uri: 'https://api-apeast.graphcms.com/v1/cjksvdr8u017601burwjyriqm/master'
 })
 
-const POSTS_QUERY = gql`
-  {
+const ALL_POSTS_QUERY = gql`
+  query allPosts {
     posts {
       title
       body
@@ -34,7 +34,7 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Welcome to React</h1>
           </header>
-          <Query query={POSTS_QUERY}>
+          <Query query={ALL_POSTS_QUERY}>
             {({ loading, data }) => {
               if (loading) return <div>Loading...</div>
               const { posts } = data
