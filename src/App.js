@@ -5,6 +5,7 @@ import { ApolloProvider } from 'react-apollo'
 
 import Post from './components/Post'
 import Posts from './components/Posts'
+import NewPost from './components/NewPost'
 
 import logo from './logo.svg'
 import './App.css'
@@ -28,8 +29,11 @@ class App extends Component {
             </header>
           </Link>
 
+          <Link to="/post/new">New Post</Link>
+
           <Switch>
             <Route path="/" component={Posts} exact />
+            <Route path="/post/new" component={NewPost} exact />
             <Route path="/post/:id" component={Post} />
           </Switch>
         </div>
