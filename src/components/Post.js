@@ -3,8 +3,8 @@ import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
 const POST_QUERY = gql`
-  query getPost {
-    post (where: { id: "cjksyre0226bc0995lpnnrlvz" }) {
+  query getPost($id: ID!) {
+    post (where: { id: $id }) {
       title
       body
       id
@@ -16,8 +16,14 @@ const POST_QUERY = gql`
 
 class Post extends Component {
   render() {
+    const { match } = this.props
     return (
-      <Query query={POST_QUERY}>
+      <Query
+        query={POST_QUERY}
+        variables={{
+          id: match.params.id
+        }}
+      >
         {({ loading, data }) => {
           if (loading) return <div>Loading...</div>
           const { post } = data
