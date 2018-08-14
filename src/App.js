@@ -23,7 +23,7 @@ const ALL_POSTS_QUERY = gql`
 `
 
 // NOTE just to test out a query ...
-// client.query({ query: WHAT_EVS }).then(res => console.log(res.data.posts))
+// client.query({ query: ALL_POSTS_QUERY }).then(res => console.log(res.data.posts))
 
 class App extends Component {
   render() {
